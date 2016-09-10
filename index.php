@@ -44,21 +44,21 @@
 
 			<h1 id="qui-sommes-nous">Qui sommes nous?</h1>
 			<div class="text">
-				<p>Text</p>
+				<img src="proposition-schema1.jpg" style="width:100%;height:100%;"/>
 			</div>
 
 			<hr>
 
 			<h1 id="notre-organisation">Notre organisation</h1>
 			<div class="text">
-				<p>Text</p>
+				<img src="proposition-schema2.jpg" style="width:100%;height:100%;"/>
 			</div>
 
 			<hr>
 
 			<h1 id="notre-entreprise">Notre entreprise</h1>
 			<div class="text">
-				<p>Text</p>
+				<img src="proposition-schema3.jpg" style="width:100%;height:100%;"/>
 			</div>
 
 
