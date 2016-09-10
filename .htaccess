@@ -1,0 +1,4 @@
+Options +FollowSymlinks
+RewriteEngine on
+RewriteRule ^blog$  /blog.php [L]
+RewriteRule ^ressources$  /ressources.php [L]

@@ -22,8 +22,8 @@
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			   	<ul class="nav navbar-nav">
-			   		<li class="active"><a href="">À propos</a></li>
-			   		<li><a href="ressources">Ressources</a></li>
+			   		<li><a href="/">À propos</a></li>
+			   		<li class="active"><a href="">Ressources</a></li>
 			   		<li><a href="blog">Blog</a></li>
 			   		<li><a href="#">Contact</a></li>
 			   	</ul>
@@ -33,40 +33,6 @@
 		</nav>
 		<!-- Fin navbar -->
 
-		<div class="container">
-
-			<h1 class="h-balise" id="quest-ce-que-la-prospective">Qu'est ce que la prospective ?</h1>
-			<div class="text">
-				<img src="proposition-schema.jpg" style="width:100%;height:100%;"/>
-			</div>
-
-			<hr>
-
-			<h1 id="qui-sommes-nous">Qui sommes nous?</h1>
-			<div class="text">
-				<p>Text</p>
-			</div>
-
-			<hr>
-
-			<h1 id="notre-organisation">Notre organisation</h1>
-			<div class="text">
-				<p>Text</p>
-			</div>
-
-			<hr>
-
-			<h1 id="notre-entreprise">Notre entreprise</h1>
-			<div class="text">
-				<p>Text</p>
-			</div>
-
-
-		</div>
-
-		<footer>
-
-		</footer>
 	</body>
 
 </html>
