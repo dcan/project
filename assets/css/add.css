@@ -1,3 +1,21 @@
+hr.style-seven {
+    height: 30px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+}
+hr.style-seven:before { /* Not really supposed to work, but does */
+    display: block;
+    content: "";
+    height: 30px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: black;
+    border-width: 0 0 1px 0;
+    border-radius: 20px;
+}
+
 .background-footer {
 	height: 80px;
 	background-color: rgba(24, 24, 24, 0.76);
@@ -41,5 +59,11 @@
 	margin-top: 30%;
 }
 
-
+.degrade {
+	background: 
+	linear-gradient(
+		to bottom right,
+		#FFFFFF, #8F8F8F
+		);
+}
 

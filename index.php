@@ -8,7 +8,7 @@
 		<script type="text/javascript" src="jquery-1.12.4.min.js"></script>
 	</head>
 
-	<body>
+	<body class="degrade">
 
 		<!-- Navbar -->
 		<nav class="navbar navbar-default">
@@ -40,21 +40,21 @@
 				<img src="proposition-schema.jpg" style="width:100%;height:100%;"/>
 			</div>
 
-			<hr>
+			<hr class="style-seven">
 
 			<h1 id="qui-sommes-nous">Qui sommes nous?</h1>
 			<div class="text">
 				<img src="proposition-schema1.jpg" style="width:100%;height:100%;"/>
 			</div>
 
-			<hr>
+			<hr class="style-seven">
 
 			<h1 id="notre-organisation">Notre organisation</h1>
 			<div class="text">
 				<img src="proposition-schema2.jpg" style="width:100%;height:100%;"/>
 			</div>
 
-			<hr>
+			<hr class="style-seven">
 
 			<h1 id="notre-entreprise">Notre entreprise</h1>
 			<div class="text">
