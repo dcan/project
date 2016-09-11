@@ -2,6 +2,8 @@
 <html>
 	<head>
 		<title>proGective</title>
+		<meta charset="UTF-8" />
+		<meta name="author" content="Diyar Can" />
 		<link rel="stylesheet" href="assets/css/bootstrap.css" />
 		<link rel="stylesheet" href="assets/css/add.css" />
 		<script type="text/javascript" src="assets/js/bootsrap.js"></script>
