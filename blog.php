@@ -1,3 +1,63 @@
+<?php 
+session_start();
+//Connexion à la bdd
+try {
+	$bdd2 = new PDO('mysql:host=localhost;dbname=progective', 'root', '');
+} catch (Exception $e) {
+	die("Error !");
+}
+//Fin
+
+$rqtIdMax = $bdd2->prepare("SELECT MAX(id) AS idmax FROM blog");
+$rqtIdMax->execute();
+$row = $rqtIdMax->fetch();
+$idmax = $row['idmax'];
+
+
+require('post.php'); 
+$post = getPost($_GET['id']);
+
+$date = $post['date'];
+$links = $post['links'];
+$author = $post['author'];
+$keywords = $post['keys'];
+$content = $post['content'];
+$title = $post['title'];
+
+if(empty($_SESSION['order'])) {
+	$order = $_GET['id'];
+	if ($order > 1) {
+		$moins = $order - 1;
+	} else {
+		$moins = $order;
+	}
+	if ($order < $idmax) {
+		$plus = $order + 1;
+	} else {
+		$plus = $order;
+	}
+} else {
+	if(!isset($_SESSION['followOrder'])) {
+		$_SESSION['followOrder'] = 0;
+	} else {
+		$order = $_SESSION['order'][$_SESSION['followOrder']];
+
+		if (!empty($_SESSION['followOrder']) &&  $_SESSION['followOrder'] < count($_SESSION['order'])) {
+			$_SESSION['followOrder'] += 1;
+			$plus = $_SESSION['order'][$_SESSION['followOrder']];
+		} else {
+			$plus = $_SESSION['order'][$_SESSION['followOrder']];
+		}
+
+		if (!empty($_SESSION['followOrder']) &&  $_SESSION['followOrder'] > 0) {
+			$_SESSION['followOrder'] -= 1;
+			$moins = $_SESSION['order'][$_SESSION['followOrder']];
+		} else {
+			$moins = $_SESSION['order'][$_SESSION['followOrder']];
+		}
+	}
+}
+?>
 <!Doctype html>
 <html>
 	<head>
@@ -40,7 +100,7 @@
 				<div class="col-xs-6 col-md-3">
 					<form role="form" method="POST" action="search.php" > 
 					  <div class="form-group has-feedback has-feedback-left">
-					    <input type="text" class="form-control" placeholder="Search" />
+					    <input type="text" class="form-control" placeholder="Search" name="search" />
 					    <i class="form-control-feedback glyphicon glyphicon-search"></i>
 					  </div>
 					</form>
@@ -51,21 +111,20 @@
 				<div class="col-md-9">
 					<div class="well well-lg">
 						<div class="page-header">
-						  <h1>New robot <small>by Andrew</small></h1>
+							<div class="row">
+								<div class="col-md-10"><h1><?php echo $title; ?> <small>by <?php echo $author; ?></small></h1></div>
+								<div class="col-md-2"><h4><small><?php echo $date; ?></small></h4></div>
+							</div>
 						</div>
-						<p>Exsistit autem hoc loco quaedam quaestio subdifficilis, num quando amici novi, digni amicitia, veteribus sint anteponendi, ut equis vetulis teneros anteponere solemus. Indigna homine dubitatio! Non enim debent esse amicitiarum sicut aliarum rerum satietates; veterrima quaeque, ut ea vina, quae vetustatem ferunt, esse debet suavissima; verumque illud est, quod dicitur, multos modios salis simul edendos esse, ut amicitiae munus expletum sit.
-
-						Ut enim quisque sibi plurimum confidit et ut quisque maxime virtute et sapientia sic munitus est, ut nullo egeat suaque omnia in se ipso posita iudicet, ita in amicitiis expetendis colendisque maxime excellit. Quid enim? Africanus indigens mei? Minime hercule! ac ne ego quidem illius; sed ego admiratione quadam virtutis eius, ille vicissim opinione fortasse non nulla, quam de meis moribus habebat, me dilexit; auxit benevolentiam consuetudo. Sed quamquam utilitates multae et magnae consecutae sunt, non sunt tamen ab earum spe causae diligendi profectae.
-
-						Pandente itaque viam fatorum sorte tristissima, qua praestitutum erat eum vita et imperio spoliari, itineribus interiectis permutatione iumentorum emensis venit Petobionem oppidum Noricorum, ubi reseratae sunt insidiarum latebrae omnes, et Barbatio repente apparuit comes, qui sub eo domesticis praefuit, cum Apodemio agente in rebus milites ducens, quos beneficiis suis oppigneratos elegerat imperator certus nec praemiis nec miseratione ulla posse deflecti.</p>
+						<p><?php echo $content; ?></p>
 					</div>
 				</div>
 			</div>
 
 			<nav aria-label="...">
 			  <ul class="pager">
-			    <li><a href="#">Previous</a></li>
-			    <li><a href="#">Next</a></li>
+			    <li><a href="blog.php?id=<?php echo $moins;?>">Previous</a></li>
+			    <li><a href="blog.php?id=<?php echo $plus;?>">Next</a></li>
 			  </ul>
 			</nav>
 		</div>
